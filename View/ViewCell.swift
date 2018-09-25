@@ -20,9 +20,28 @@ class ViewCell: BaseCell {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
                 subtitleTextView.text = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 1 year ago"
+                setupThumbnailImage()
             }
             
             
+        }
+    }
+    
+    func setupThumbnailImage() {
+        if let thumbnailImageUrl = video?.thumbnailImage {
+            let url = URL(string: thumbnailImageUrl)
+            URLSession.shared.dataTask(with: url!) { (data, response, error) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.thumbnailImageView.image = UIImage(data: data!)
+                    }
+                    
+                }
+            }.resume()
         }
     }
     
