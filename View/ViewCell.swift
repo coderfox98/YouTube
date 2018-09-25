@@ -40,8 +40,8 @@ class ViewCell: BaseCell {
         }
     }
     
-    let thumbnailImageView : UIImageView = {
-        let imageView = UIImageView()
+    let thumbnailImageView : CustomImageView = {
+        let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "photo-1")
         imageView.contentMode = .scaleAspectFill
@@ -56,8 +56,8 @@ class ViewCell: BaseCell {
         return view
     }()
     
-    let userProfileImageView : UIImageView = {
-        let imageView = UIImageView()
+    let userProfileImageView : CustomImageView = {
+        let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
