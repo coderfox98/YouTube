@@ -14,13 +14,14 @@ class ViewCell: BaseCell {
         didSet {
             titleLabel.text = video?.title
             thumbnailImageView.image = UIImage(named: (video?.thumbnailImage)!)
-            userProfileImageView.image = video?.channel.userProfileImage
+            userProfileImageView.image = UIImage(named: (video?.channel.userProfileImage)!)
             
             if let numberOfViews = video?.numberOfViews, let channelName = video?.channel.name {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
                 subtitleTextView.text = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 1 year ago"
                 setupThumbnailImage()
+                setupUserProfileImage()
             }
             
             
@@ -29,19 +30,13 @@ class ViewCell: BaseCell {
     
     func setupThumbnailImage() {
         if let thumbnailImageUrl = video?.thumbnailImage {
-            let url = URL(string: thumbnailImageUrl)
-            URLSession.shared.dataTask(with: url!) { (data, response, error) in
-                if error != nil {
-                    print(error)
-                    return
-                }
-                else {
-                    DispatchQueue.main.async {
-                        self.thumbnailImageView.image = UIImage(data: data!)
-                    }
-                    
-                }
-            }.resume()
+            thumbnailImageView.loadDataWithInputUrl(urlString: thumbnailImageUrl)
+        }
+    }
+    
+    func setupUserProfileImage() {
+        if let userProfileImage = video?.channel.userProfileImage {
+            userProfileImageView.loadDataWithInputUrl(urlString: userProfileImage)
         }
     }
     
@@ -67,6 +62,7 @@ class ViewCell: BaseCell {
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
         imageView.image = UIImage(named: "photo-2")
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     

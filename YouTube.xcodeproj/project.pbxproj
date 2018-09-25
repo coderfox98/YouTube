@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1DEF96E215A66DB00FF7FCA /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF96D215A66DB00FF7FCA /* extension.swift */; };
 		DB5321A62154385000DACEB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5321A52154385000DACEB3 /* AppDelegate.swift */; };
 		DB5321A82154385000DACEB3 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5321A72154385000DACEB3 /* HomeController.swift */; };
 		DB5321AD2154385300DACEB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5321AC2154385300DACEB3 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B1DEF96D215A66DB00FF7FCA /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		DB5321A22154385000DACEB3 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5321A52154385000DACEB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5321A72154385000DACEB3 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -43,9 +45,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1DEF96C215A66C600FF7FCA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1DEF96D215A66DB00FF7FCA /* extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DB5321992154384F00DACEB3 = {
 			isa = PBXGroup;
 			children = (
+				B1DEF96C215A66C600FF7FCA /* Extensions */,
 				DB5321C12156C9C000DACEB3 /* Model */,
 				DB5321B721556B5900DACEB3 /* View */,
 				DB5321B821556B6300DACEB3 /* Controller */,
@@ -177,6 +188,7 @@
 				DB5321BE2155E94200DACEB3 /* BaseCell.swift in Sources */,
 				DB5321C32156C9D400DACEB3 /* Video.swift in Sources */,
 				DB5321A62154385000DACEB3 /* AppDelegate.swift in Sources */,
+				B1DEF96E215A66DB00FF7FCA /* extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

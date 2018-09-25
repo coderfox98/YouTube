@@ -19,5 +19,5 @@ class Video : NSObject {
 
 class Channel {
     var name : String = "Default username"
-    var userProfileImage : UIImage = UIImage(named: "kanye_profile")!
+    var userProfileImage : String = "kanye_profile"
 }
