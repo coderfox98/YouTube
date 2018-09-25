@@ -10,8 +10,6 @@ import UIKit
 
 class MenuCell : BaseCell {
     
-    
-    
     let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "home")
