@@ -12,23 +12,23 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     let cellId = "cellId"
     
-//    let videos : [Video] = {
-//        var video1 = Video()
-//        video1.title = "Ed Sheeran - Perfect featuring Beyone and me "
-//        video1.thumbnailImage = UIImage(named: "photo-1")!
-//        video1.channel.userProfileImage = UIImage(named: "kanye_profile")!
-//        video1.channel.name = "Kanye Channel"
-//        video1.numberOfViews = 121321312
-//
-//        var video2 = Video()
-//        video2.title = "Ed Sheeran - Don't"
-//        video2.thumbnailImage = UIImage(named: "photo-2")!
-//        video2.channel.userProfileImage = (UIImage(named: "taylor_swift_profile")?.withRenderingMode(.alwaysTemplate))!
-//        video2.channel.name = "Ed Sheeran"
-//        video2.numberOfViews = 12132131223234
-//        return [video1, video2]
-//    }()
-
+    //    let videos : [Video] = {
+    //        var video1 = Video()
+    //        video1.title = "Ed Sheeran - Perfect featuring Beyone and me "
+    //        video1.thumbnailImage = UIImage(named: "photo-1")!
+    //        video1.channel.userProfileImage = UIImage(named: "kanye_profile")!
+    //        video1.channel.name = "Kanye Channel"
+    //        video1.numberOfViews = 121321312
+    //
+    //        var video2 = Video()
+    //        video2.title = "Ed Sheeran - Don't"
+    //        video2.thumbnailImage = UIImage(named: "photo-2")!
+    //        video2.channel.userProfileImage = (UIImage(named: "taylor_swift_profile")?.withRenderingMode(.alwaysTemplate))!
+    //        video2.channel.name = "Ed Sheeran"
+    //        video2.numberOfViews = 12132131223234
+    //        return [video1, video2]
+    //    }()
+    
     
     var videos : [Video]?
     
@@ -85,29 +85,30 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                 }
                 
             }
-        }.resume()
+            }.resume()
     }
     
     func setupNavBarButtons() {
         let searchButton = UIBarButtonItem(image: UIImage(named: "search_icon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleSearch))
         let moreButton = UIBarButtonItem(image: UIImage(named: "nav_more_icon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMore))
-    
+        
         navigationItem.rightBarButtonItems = [moreButton, searchButton]
     }
     
     @objc func handleSearch() {
         print(123)
     }
-    
+    let settingsLauncher = SettingsLauncher()
     @objc func handleMore() {
-        print(123)
+        settingsLauncher.showSettings()
     }
+    
     let menuBar : MenuBar = {
-       let mb = MenuBar()
-        
+        let mb = MenuBar()
         mb.translatesAutoresizingMaskIntoConstraints = false
         return mb
     }()
+    
     
     private func setupMenuBar() {
         view.addSubview(menuBar)
@@ -125,13 +126,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         }
         return 0
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ViewCell
         cell.video = videos?[indexPath.item]
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = (view.frame.width - 32) * 9 / 16
         return CGSize(width: view.frame.width, height: height + 16 + 8 + 44 + 16)

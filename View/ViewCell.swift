@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewCell: BaseCell {
-   
+    
     var video : Video? {
         didSet {
             titleLabel.text = video?.title

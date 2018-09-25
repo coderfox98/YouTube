@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B1DEF96E215A66DB00FF7FCA /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF96D215A66DB00FF7FCA /* extension.swift */; };
+		DB3216D8215AACE700077D63 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3216D7215AACE700077D63 /* SettingsLauncher.swift */; };
 		DB5321A62154385000DACEB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5321A52154385000DACEB3 /* AppDelegate.swift */; };
 		DB5321A82154385000DACEB3 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5321A72154385000DACEB3 /* HomeController.swift */; };
 		DB5321AD2154385300DACEB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB5321AC2154385300DACEB3 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		B1DEF96D215A66DB00FF7FCA /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		DB3216D7215AACE700077D63 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		DB5321A22154385000DACEB3 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5321A52154385000DACEB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB5321A72154385000DACEB3 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5321A72154385000DACEB3 /* HomeController.swift */,
+				DB3216D7215AACE700077D63 /* SettingsLauncher.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				DB5321BA21556B8400DACEB3 /* ViewCell.swift in Sources */,
 				DB5321A82154385000DACEB3 /* HomeController.swift in Sources */,
+				DB3216D8215AACE700077D63 /* SettingsLauncher.swift in Sources */,
 				DB5321C02155E9C000DACEB3 /* MenuCell.swift in Sources */,
 				DB5321BC215571E400DACEB3 /* MenuBar.swift in Sources */,
 				DB5321BE2155E94200DACEB3 /* BaseCell.swift in Sources */,
