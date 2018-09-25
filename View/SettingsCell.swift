@@ -10,10 +10,27 @@ import UIKit
 
 class SettingsCell: BaseCell {
     
+    var setting : Setting? {
+        didSet {
+            nameLabel.text = setting?.nameLabel
+            iconImageView.image = UIImage(named: (setting?.imageName)!)?.withRenderingMode(.alwaysTemplate)
+            iconImageView.tintColor = UIColor.darkGray
+        }
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = isHighlighted ? UIColor.darkGray : UIColor.white
+            nameLabel.textColor = isHighlighted ? UIColor.white : UIColor.black
+            iconImageView.tintColor = isHighlighted ? UIColor.white : UIColor.darkGray
+        }
+    }
+    
     let nameLabel : UILabel = {
        let label = UILabel()
         label.text = "Settings"
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 13)
         return label
     }()
     

@@ -98,9 +98,23 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     @objc func handleSearch() {
         print(123)
     }
-    let settingsLauncher = SettingsLauncher()
     @objc func handleMore() {
         settingsLauncher.showSettings()
+    }
+    
+    lazy var settingsLauncher : SettingsLauncher = {
+       let launcher = SettingsLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
+    
+    func showSettingsController(setting : Setting) {
+        let settingsLauncher = UIViewController()
+        settingsLauncher.view.backgroundColor = .white
+        settingsLauncher.navigationItem.title = setting.nameLabel
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white] 
+        navigationController?.pushViewController(settingsLauncher, animated: true)
     }
     
     let menuBar : MenuBar = {
