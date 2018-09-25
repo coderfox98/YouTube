@@ -10,7 +10,7 @@ import UIKit
 
 class Video : NSObject {
     var title : String = "Ed Sheeran (Default Title)"
-    var thumbnailImage : UIImage = UIImage(named: "photo-1")!
+    var thumbnailImage : String = ""
     var numberOfViews : NSNumber = 0
     var uploadDate : NSDate?
     var channel : Channel = Channel()

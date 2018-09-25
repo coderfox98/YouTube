@@ -13,7 +13,7 @@ class ViewCell: BaseCell {
     var video : Video? {
         didSet {
             titleLabel.text = video?.title
-            thumbnailImageView.image = video?.thumbnailImage
+            thumbnailImageView.image = UIImage(named: (video?.thumbnailImage)!)
             userProfileImageView.image = video?.channel.userProfileImage
             
             if let numberOfViews = video?.numberOfViews, let channelName = video?.channel.name {
