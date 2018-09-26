@@ -12,23 +12,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     let cellId = "cellId"
     
-    //    let videos : [Video] = {
-    //        var video1 = Video()
-    //        video1.title = "Ed Sheeran - Perfect featuring Beyone and me "
-    //        video1.thumbnailImage = UIImage(named: "photo-1")!
-    //        video1.channel.userProfileImage = UIImage(named: "kanye_profile")!
-    //        video1.channel.name = "Kanye Channel"
-    //        video1.numberOfViews = 121321312
-    //
-    //        var video2 = Video()
-    //        video2.title = "Ed Sheeran - Don't"
-    //        video2.thumbnailImage = UIImage(named: "photo-2")!
-    //        video2.channel.userProfileImage = (UIImage(named: "taylor_swift_profile")?.withRenderingMode(.alwaysTemplate))!
-    //        video2.channel.name = "Ed Sheeran"
-    //        video2.numberOfViews = 12132131223234
-    //        return [video1, video2]
-    //    }()
-    
     
     var videos : [Video]?
     
@@ -37,7 +20,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         fetchVideos()
         navigationController?.navigationBar.isTranslucent = false
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        titleLabel.text = "Home"
+        titleLabel.text = "  Home"
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
@@ -51,41 +34,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func fetchVideos() {
-        let url : URL = URL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")!
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print(error)
-                return
-            }
-            else
-            {
-                do{ let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-                    print(json)
-                    self.videos = [Video]()
-                    for dictionary in json as! [[String:AnyObject]] {
-                        let video = Video()
-                        video.title = dictionary["title"] as! String
-                        video.thumbnailImage = dictionary["thumbnail_image_name"] as! String
-                        
-                        let channelDictionary = dictionary["channel"] as! [String: AnyObject]
-                        
-                        let channel = Channel()
-                        channel.name = channelDictionary["name"] as! String
-                        channel.userProfileImage = channelDictionary["profile_image_name"] as! String
-                        video.channel = channel
-                        self.videos?.append(video)
-                    }
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
-                    
-                }
-                catch let jsonError {
-                    print(jsonError)
-                }
-                
-            }
-            }.resume()
+        ApiService.sharedInstance.fetchVideos { (videos : [Video]) in
+            self.videos = videos
+            self.collectionView.reloadData()
+        }
     }
     
     func setupNavBarButtons() {
@@ -123,13 +75,31 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return mb
     }()
     
+    let redView : UIView = {
+       let rv = UIView()
+        rv.backgroundColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
+        rv.translatesAutoresizingMaskIntoConstraints = false
+        return rv
+    }()
+    
     
     private func setupMenuBar() {
+        
+        navigationController?.hidesBarsOnSwipe = true
+        
+        view.addSubview(redView)
+        redView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        redView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        redView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        redView.heightAnchor.constraint(equalToConstant: 50).isActive = true 
+        
         view.addSubview(menuBar)
-        menuBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        menuBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         menuBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
         menuBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         menuBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
         
     }
     
