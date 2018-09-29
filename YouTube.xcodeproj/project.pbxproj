@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B1DEF96E215A66DB00FF7FCA /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF96D215A66DB00FF7FCA /* extension.swift */; };
 		B1DEF970215AC96E00FF7FCA /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEF96F215AC96E00FF7FCA /* SettingsCell.swift */; };
+		DB12DF96215FD76100DCCA79 /* FeedCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12DF95215FD76000DCCA79 /* FeedCellCollectionViewCell.swift */; };
 		DB3216D8215AACE700077D63 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3216D7215AACE700077D63 /* SettingsLauncher.swift */; };
 		DB3216DB215B8CD500077D63 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3216DA215B8CD500077D63 /* ApiService.swift */; };
 		DB5321A62154385000DACEB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5321A52154385000DACEB3 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		B1DEF96D215A66DB00FF7FCA /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		B1DEF96F215AC96E00FF7FCA /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		DB12DF95215FD76000DCCA79 /* FeedCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB3216D7215AACE700077D63 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		DB3216DA215B8CD500077D63 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		DB5321A22154385000DACEB3 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5321B921556B8400DACEB3 /* ViewCell.swift */,
+				DB12DF95215FD76000DCCA79 /* FeedCellCollectionViewCell.swift */,
 				DB5321BB215571E400DACEB3 /* MenuBar.swift */,
 				DB5321BF2155E9C000DACEB3 /* MenuCell.swift */,
 				DB5321BD2155E94200DACEB3 /* BaseCell.swift */,
@@ -202,6 +205,7 @@
 				DB5321A82154385000DACEB3 /* HomeController.swift in Sources */,
 				DB3216D8215AACE700077D63 /* SettingsLauncher.swift in Sources */,
 				DB5321C02155E9C000DACEB3 /* MenuCell.swift in Sources */,
+				DB12DF96215FD76100DCCA79 /* FeedCellCollectionViewCell.swift in Sources */,
 				B1DEF970215AC96E00FF7FCA /* SettingsCell.swift in Sources */,
 				DB5321BC215571E400DACEB3 /* MenuBar.swift in Sources */,
 				DB3216DB215B8CD500077D63 /* ApiService.swift in Sources */,

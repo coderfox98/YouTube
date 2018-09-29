@@ -11,6 +11,7 @@ import UIKit
 class MenuBar : UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let images = ["home", "trending", "subscriptions", "account" ]
+    var homeController : HomeController?
     
         lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -58,13 +59,14 @@ class MenuBar : UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
   
-        let x = CGFloat(indexPath.item) * self.frame.width / 4
-        horizontalBarLeftAnchorConstraint?.constant = x
-        
-        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.layoutIfNeeded()
-        }, completion: nil)
-
+//        let x = CGFloat(indexPath.item) * self.frame.width / 4
+//        horizontalBarLeftAnchorConstraint?.constant = x
+//        
+//        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+//            self.layoutIfNeeded()
+//        }, completion: nil)
+//       
+        homeController?.scrollToMenuIndex(menu: indexPath.item)
         
     }
     
