@@ -12,8 +12,8 @@ class ApiService : NSObject {
     static let sharedInstance = ApiService()
     
     
-     let baseUrl = "https://s3-us-west-2.amazonaws.com/youtubeassets"
- 
+    let baseUrl = "https://s3-us-west-2.amazonaws.com/youtubeassets"
+    
     func fetchSubscriptionFeed(completion: @escaping ([Video]) -> ()) {
         
         fetchFeedForUrlString(urlString: "\(baseUrl)/subscriptions.json",completion: completion)
@@ -22,7 +22,7 @@ class ApiService : NSObject {
     func fetchVideos(completion: @escaping ([Video]) -> ()) {
         fetchFeedForUrlString(urlString: "\(baseUrl)/home.json", completion: completion)
     }
-   
+    
     func fetchTrendingFeed(completion: @escaping([Video]) -> ()) {
         fetchFeedForUrlString(urlString: "\(baseUrl)/trending.json", completion: completion)
     }
@@ -38,19 +38,22 @@ class ApiService : NSObject {
             }
             else
             {
-                do{ let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
                     print(json)
                     var videos = [Video]()
                     for dictionary in json as! [[String:AnyObject]] {
                         let video = Video()
                         video.title = dictionary["title"] as! String
-                        video.thumbnailImage = dictionary["thumbnail_image_name"] as! String
-                        
+                        video.thumbnail_image_name = dictionary["thumbnail_image_name"] as! String
+                        video.number_of_views = dictionary["number_of_views"] as! NSNumber
+//                        video.setValuesForKeys(dictionary)
                         let channelDictionary = dictionary["channel"] as! [String: AnyObject]
                         
                         let channel = Channel()
+                        
                         channel.name = channelDictionary["name"] as! String
-                        channel.userProfileImage = channelDictionary["profile_image_name"] as! String
+                        channel.profile_image_name = channelDictionary["profile_image_name"] as! String
                         video.channel = channel
                         videos.append(video)
                     }
@@ -67,5 +70,23 @@ class ApiService : NSObject {
             }.resume()
     }
     
-    
+//    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+//    print(json)
+//    var videos = [Video]()
+//    for dictionary in json as! [[String:AnyObject]] {
+//    let video = Video()
+//    video.title = dictionary["title"] as! String
+//    video.thumbnailImage = dictionary["thumbnail_image_name"] as! String
+//
+//    let channelDictionary = dictionary["channel"] as! [String: AnyObject]
+//
+//    let channel = Channel()
+//    channel.name = channelDictionary["name"] as! String
+//    channel.userProfileImage = channelDictionary["profile_image_name"] as! String
+//    video.channel = channel
+//    videos.append(video)
+//    }
+//    DispatchQueue.main.async {
+//    completion(videos)
+//    }
 }

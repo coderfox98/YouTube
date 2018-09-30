@@ -10,14 +10,15 @@ import UIKit
 
 class Video : NSObject {
     var title : String = "Ed Sheeran (Default Title)"
-    var thumbnailImage : String = ""
-    var numberOfViews : NSNumber = 0
+    var thumbnail_image_name : String = ""
+    var number_of_views : NSNumber = 0
     var uploadDate : NSDate?
     var channel : Channel = Channel()
+    var duration : NSNumber = 0
 }
 
 
 class Channel {
     var name : String = "Default username"
-    var userProfileImage : String = "kanye_profile"
+    var profile_image_name : String = "kanye_profile"
 }

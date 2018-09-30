@@ -12,6 +12,7 @@
 		DB12DF96215FD76100DCCA79 /* FeedCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12DF95215FD76000DCCA79 /* FeedCellCollectionViewCell.swift */; };
 		DB12DF98215FEE0B00DCCA79 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12DF97215FEE0B00DCCA79 /* TrendingCell.swift */; };
 		DB12DF9A215FEFE700DCCA79 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12DF99215FEFE700DCCA79 /* SubscriptionCell.swift */; };
+		DB12DF9C21612A6400DCCA79 /* VideoLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12DF9B21612A6400DCCA79 /* VideoLauncher.swift */; };
 		DB3216D8215AACE700077D63 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3216D7215AACE700077D63 /* SettingsLauncher.swift */; };
 		DB3216DB215B8CD500077D63 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3216DA215B8CD500077D63 /* ApiService.swift */; };
 		DB5321A62154385000DACEB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5321A52154385000DACEB3 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		DB12DF95215FD76000DCCA79 /* FeedCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB12DF97215FEE0B00DCCA79 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		DB12DF99215FEFE700DCCA79 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
+		DB12DF9B21612A6400DCCA79 /* VideoLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLauncher.swift; sourceTree = "<group>"; };
 		DB3216D7215AACE700077D63 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		DB3216DA215B8CD500077D63 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		DB5321A22154385000DACEB3 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 				DB5321AC2154385300DACEB3 /* Assets.xcassets */,
 				DB5321AE2154385300DACEB3 /* LaunchScreen.storyboard */,
 				DB5321B12154385300DACEB3 /* Info.plist */,
+				DB12DF9B21612A6400DCCA79 /* VideoLauncher.swift */,
 			);
 			path = YouTube;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				DB5321C02155E9C000DACEB3 /* MenuCell.swift in Sources */,
 				DB12DF96215FD76100DCCA79 /* FeedCellCollectionViewCell.swift in Sources */,
 				B1DEF970215AC96E00FF7FCA /* SettingsCell.swift in Sources */,
+				DB12DF9C21612A6400DCCA79 /* VideoLauncher.swift in Sources */,
 				DB5321BC215571E400DACEB3 /* MenuBar.swift in Sources */,
 				DB3216DB215B8CD500077D63 /* ApiService.swift in Sources */,
 				DB5321BE2155E94200DACEB3 /* BaseCell.swift in Sources */,

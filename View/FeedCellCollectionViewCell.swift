@@ -50,7 +50,10 @@ class FeedCellCollectionViewCell: BaseCell, UICollectionViewDelegate, UICollecti
     }
     
  
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      let videoLauncher = VideoLauncher()
+        videoLauncher.showVideoPlayer()
+    }
          func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             if let count = videos?.count {
                 return count

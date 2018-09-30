@@ -13,10 +13,10 @@ class ViewCell: BaseCell {
     var video : Video? {
         didSet {
             titleLabel.text = video?.title
-            thumbnailImageView.image = UIImage(named: (video?.thumbnailImage)!)
-            userProfileImageView.image = UIImage(named: (video?.channel.userProfileImage)!)
+            thumbnailImageView.image = UIImage(named: (video?.thumbnail_image_name)!)
+            userProfileImageView.image = UIImage(named: (video?.channel.profile_image_name)!)
             
-            if let numberOfViews = video?.numberOfViews, let channelName = video?.channel.name {
+            if let numberOfViews = video?.number_of_views, let channelName = video?.channel.name {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
                 subtitleTextView.text = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 1 year ago"
@@ -29,13 +29,13 @@ class ViewCell: BaseCell {
     }
     
     func setupThumbnailImage() {
-        if let thumbnailImageUrl = video?.thumbnailImage {
+        if let thumbnailImageUrl = video?.thumbnail_image_name {
             thumbnailImageView.loadDataWithInputUrl(urlString: thumbnailImageUrl)
         }
     }
     
     func setupUserProfileImage() {
-        if let userProfileImage = video?.channel.userProfileImage {
+        if let userProfileImage = video?.channel.profile_image_name {
             userProfileImageView.loadDataWithInputUrl(urlString: userProfileImage)
         }
     }
