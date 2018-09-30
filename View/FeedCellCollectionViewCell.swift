@@ -23,31 +23,33 @@ class FeedCellCollectionViewCell: BaseCell, UICollectionViewDelegate, UICollecti
         return cv
     }()
     
-    
+    func fetchVideos() {
+        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
+            
+            self.videos = videos
+            self.collectionView.reloadData()
+            
+        }
+    }
     
     override func setupViews() {
         super.setupViews()
+        
+        fetchVideos()
+        
         addSubview(collectionView)
-//        collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-//        collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: self.frame.height ).isActive = true
         collectionView.widthAnchor.constraint(equalToConstant: self.frame.width).isActive = true
         collectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
         collectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
         
         collectionView.register(ViewCell.self, forCellWithReuseIdentifier: cellId)
-        fetchVideos()
+        
     }
     
  
-    
-    func fetchVideos() {
-        ApiService.sharedInstance.fetchVideos { (videos : [Video]) in
-            self.videos = videos
-            self.collectionView.reloadData()
-            self.layoutIfNeeded()
-        }
-    }
     
          func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             if let count = videos?.count {
@@ -69,4 +71,5 @@ class FeedCellCollectionViewCell: BaseCell, UICollectionViewDelegate, UICollecti
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
             return 0
         }
+  
 }

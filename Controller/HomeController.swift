@@ -11,8 +11,9 @@ import UIKit
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
-    
- 
+    let trendingCellId = "trendingCellId"
+    let subscriptionCellId = "subscriptionCellId"
+     let titles = ["Home", "Trending", "Subscriptions","Account"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         collectionView.backgroundColor = .white
         collectionView.register(FeedCellCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCellId)
+        collectionView.register(SubscriptionCell.self, forCellWithReuseIdentifier: subscriptionCellId)
         collectionView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         collectionView.isPagingEnabled = true
@@ -110,6 +113,14 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func scrollToMenuIndex(menu: Int) {
         let indexPath = IndexPath(item: menu, section: 0)
         collectionView.scrollToItem(at: indexPath, at: [], animated: true)
+       setTitleForIndexPath(index: menu)
+    }
+    
+    private func setTitleForIndexPath(index : Int) {
+        if let titleLable = navigationItem.titleView as? UILabel {
+            titleLable.text = "  \(titles[index])"
+        }
+        
     }
     
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -117,6 +128,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         print(index)
         let indexPath = IndexPath(item: Int(index), section: 0)
         menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        
+       setTitleForIndexPath(index: Int(index))
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -126,9 +139,18 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return 4
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-//        let colors : [UIColor] = [.red,.yellow,.blue,.brown]
-//        cell.backgroundColor = colors[indexPath.item]
+        
+        var identifier : String = ""
+        if indexPath.item == 1 {
+            identifier = trendingCellId
+        }
+        else if indexPath.item == 2 {
+            identifier = subscriptionCellId
+        }
+        else {
+            identifier = cellId
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         return cell
     }
     
